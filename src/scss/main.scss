@@ -1,16 +1,46 @@
 @import "_normalize";
 @import "_variables";
 
-
 html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
 body {
-  color: $yellow;
-  background: $violet;
+  padding: 4px;
+}
+
+.main {
+  margin: 0 auto;
+  padding: 8px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  margin: 4px auto;
+  padding: 8px;
+  justify-self: center;
+}
+.hydrApp {
+  margin: 4px auto;
+  padding: 4px;
+  justify-self: center;
+  position: relative;
+  &__number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.button {
+  margin: 4px auto;
+  padding: 16px;
 }
