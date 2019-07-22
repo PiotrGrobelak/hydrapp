@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap&subset=latin-ext");
+
 @import "_normalize";
 @import "_variables";
 
@@ -13,6 +15,8 @@ html {
 
 body {
   padding: 4px;
+  font-family: "Roboto", sans-serif;
+  background: #3767ad;
 }
 
 .main {
@@ -27,6 +31,9 @@ body {
   margin: 4px auto;
   padding: 8px;
   justify-self: center;
+  &__title {
+    color: #ffffff;
+  }
 }
 .hydrApp {
   margin: 4px auto;
@@ -38,9 +45,39 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    font-size: 112px;
   }
 }
 .button {
   margin: 4px auto;
   padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+.button-add {
+  margin: 0 auto;
+  margin-top: 48px;
+  height: 48px;
+  width: 216px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.button-remove {
+  margin: 0 auto;
+  height: 24px;
+  width: 184px;
+  font-size: 14px;
+  line-height: 2px;
+  margin-top: 36px;
+  background: transparent;
+  color: #ffffff;
+  opacity: 0.4;
+}
+.button-history {
+  margin: 100px auto;
+  height: 48px;
+  width: 216px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
