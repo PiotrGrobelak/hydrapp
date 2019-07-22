@@ -18,8 +18,27 @@ if ('serviceWorker' in navigator) {
 
 const counter = document.querySelector(".hydrApp__counter--js")
 
+let counterNumber = 0;
+
 const btnAdd = document.querySelector(".button-add--js");
 
 const btnRemove = document.querySelector(".button-remove--js");
 
 const btnHistory = document.querySelector(".button-history--js");
+
+
+btnAdd.addEventListener('click', (e) => {
+  // e.preventDefault();
+  counter.innerHTML = ++counterNumber;
+
+})
+console.log(counter);
+
+
+btnRemove.addEventListener('click', () => {
+  counter.innerHTML = --counterNumber;
+  if (counterNumber <= 0) {
+    counterNumber = 0;
+    counter.innerHTML = counterNumber;
+  }
+})
