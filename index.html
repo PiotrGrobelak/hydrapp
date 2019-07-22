@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>hydrApp</title>
+  <meta name="description" content="Description" />
+
+  <!-- Title -->
+  <meta property="og:title" content="" />
+  <!-- OPTIONAL description. 2-4 sentences. -->
+  <meta property="og:description" content="" />
+  <!-- full url with http(s) ie. https://maciejkorsan.github.io/my-repo/ -->
+  <meta property="og:url" content="" />
+  <!-- full url to the image with http(s) ie. https://maciejkorsan.github.io/my-repo/assets/img/fb.png. Facebook suggests at least 1200 x 630. -->
+  <meta property="og:image" content="https://maciejkorsan.com/wtf-gulp-starter/assets/img/cover.png" />
+
+  <link rel="manifest" href="manifest.json" />
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <link rel="apple-touch-icon" sizes="192x192" href="assets/pwa/icons/icon-192x192.png" />
+
+  <link rel="icon" type="image/png" href="assets/pwa/icons/icon-192x192.png" />
+
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+
+<body>
+  <main class="main">
+    <header class="header">
+      <h1 class="header__title">hydrApp</h1>
+    </header>
+    <secction class="hydrApp">
+      <svg width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M242.748 2.8875C241.085 1.05 238.74 0 236.255 0H43.7555C41.288 0 38.9255 1.05 37.263 2.8875C35.618 4.7075 34.7955 7.1575 35.0405 9.625L61.2905 272.125C61.7455 276.605 65.508 280 70.0055 280H210.005C214.503 280 218.265 276.605 218.703 272.125L244.953 9.625C245.215 7.1575 244.41 4.7075 242.748 2.8875Z"
+          fill="#ECEFF1" />
+        <path
+          d="M219.455 89.25L202.13 262.5H77.8805L58.4555 68.775C80.3305 61.775 113.58 57.05 140.005 78.75C165.555 99.75 197.755 95.9 219.455 89.25Z"
+          fill="#2196F3" />
+      </svg>
+      <span class="hydrApp__counter">0</span>
+    </secction>
+    <button class="button button-add button-add--js">Dodaj szklankę</button>
+    <button class="button button-remove button-remove--js">Usuń szklankę</button>
+    <button class="button button-history button-history--js">Historia</button>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
