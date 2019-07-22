@@ -16,6 +16,8 @@ if ('serviceWorker' in navigator) {
 
 // place your code below
 
+// <<-- hydrApp -->> //
+
 const counter = document.querySelector(".hydrApp__counter--js")
 
 let counterNumber = 0;
@@ -33,8 +35,6 @@ const key = new Date().toISOString().slice(0, 10);
 btnIncrease.addEventListener('click', (e) => {
   counter.innerHTML = ++counterNumber;
   localStorage.setItem(key, counterNumber);
-  e.preventDefault();
-
 })
 
 
@@ -45,12 +45,11 @@ btnDecrease.addEventListener('click', (e) => {
     counterNumber = 0;
     counter.innerHTML = counterNumber;
     localStorage.setItem(key, counterNumber);
-    e.preventDefault();
   }
 })
 
 counterNumber = localStorage.getItem(key, counterNumber.value);
 
-counter.innerHTML = localStorage.getItem(key, counterNumber.value);
+counter.innerHTML = counterNumber;
 
 console.log(key);
