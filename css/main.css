@@ -386,7 +386,8 @@ body {
     -webkit-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
-    font-size: 112px; }
+    font-size: 112px;
+    font-weight: bold; }
 
 .button {
   margin: 4px auto;
