@@ -3,6 +3,7 @@
 @import "_normalize";
 @import "_variables";
 
+
 html {
   box-sizing: border-box;
 }
@@ -42,6 +43,30 @@ body {
   padding: 4px;
   justify-self: center;
   position: relative;
+
+  &__wave-up {
+    transition: transform 0.5s ease-out;
+  }
+
+  &____wave-up--animation {
+    transform: translateY(-2%);
+  }
+
+  &__wave-down {
+    transition: transform 0.5s ease-out;
+  }
+
+  &____wave-down--animation {
+    transform: translateY(2%);
+  }
+
+  &__wave-left {
+    transition: transform 0.5s ease-out;
+  }
+
+  &____wave-left--animation {
+    transform: translateX(-2%);
+  }
 
   &__counter {
     position: absolute;
