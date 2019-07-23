@@ -349,6 +349,36 @@ body {
   -ms-grid-column-align: center;
       justify-self: center;
   position: relative; }
+  .hydrApp__wave-up {
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    transition: -webkit-transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
+  .hydrApp____wave-up--animation {
+    -webkit-transform: translateY(-2%);
+        -ms-transform: translateY(-2%);
+            transform: translateY(-2%); }
+  .hydrApp__wave-down {
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    transition: -webkit-transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
+  .hydrApp____wave-down--animation {
+    -webkit-transform: translateY(2%);
+        -ms-transform: translateY(2%);
+            transform: translateY(2%); }
+  .hydrApp__wave-left {
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    transition: -webkit-transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
+  .hydrApp____wave-left--animation {
+    -webkit-transform: translateX(-2%);
+        -ms-transform: translateX(-2%);
+            transform: translateX(-2%); }
   .hydrApp__counter {
     position: absolute;
     top: 50%;
