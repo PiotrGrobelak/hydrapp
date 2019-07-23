@@ -47,12 +47,11 @@ const wave = function () {
   waveLeft.classList.toggle("hydrApp____wave-left--animation");
 };
 
-btnIncrease.addEventListener("click", wave);
-btnDecrease.addEventListener("click", wave);
-
 btnIncrease.addEventListener('click', (e) => {
   counter.innerHTML = ++counterNumber;
   localStorage.setItem(key, counterNumber);
+  e.preventDefault();
+  wave();
 })
 
 btnDecrease.addEventListener('click', (e) => {
@@ -63,6 +62,8 @@ btnDecrease.addEventListener('click', (e) => {
     counter.innerHTML = counterNumber;
     localStorage.setItem(key, counterNumber);
   }
+  e.preventDefault();
+  wave();
 })
 
 
