@@ -114,7 +114,7 @@ const history = new(function table() {
     let key = localStorage.key(i);
     let counterNumber = key;
   }
-  if (key) {
+  if (localStorage.getItem(key)) {
     const tableDate = document.createElement("td");
 
     tableDate.classList.add("table__date");
