@@ -101,29 +101,35 @@ btnDecrease.addEventListener("click", e => {
 });
 
 
-
-
-
-
-// if (localStorage.getItem(key) == true) {
-//   counterNumber = localStorage.getItem(key, counterNumber.value);
-//   counter.innerHTML = JSON.parse(counterNumber.value);
-// } else {
-//   counter.innerHTML = "0";
+// const history = {
+//   ...localStorage
 // }
+// console.log(history);
 
-// const history = new (function table() {
-//   const tableDate = document.createElement("td");
 
-//   tableDate.classList.add("table__date");
 
-//   document.querySelector(".table__day").appendChild(tableDate);
-//   tableDate.innerHTML = key;
-//   const tableValue = document.createElement("td");
+const history = new(function table() {
 
-//   tableValue.classList.add("table__value");
+  for (let i = 0; i < localStorage.length; i++) {
+    let key = localStorage.key(i);
+    let counterNumber = key;
+  }
+  if (key) {
+    const tableDate = document.createElement("td");
 
-//   document.querySelector(".table__day").appendChild(tableValue);
+    tableDate.classList.add("table__date");
 
-//   tableValue.innerHTML = localStorage.getItem(key, counterNumber.value);
-// })();
+    document.querySelector(".table__day").appendChild(tableDate);
+    tableDate.innerHTML = key;
+
+    const tableValue = document.createElement("td");
+
+    tableValue.classList.add("table__value");
+
+    document.querySelector(".table__day").appendChild(tableValue);
+
+    tableValue.innerHTML = counterNumber;
+  }
+})();
+
+// const table = document.querySelector(".table__body");
