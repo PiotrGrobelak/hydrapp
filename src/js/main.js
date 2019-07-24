@@ -109,27 +109,30 @@ btnDecrease.addEventListener("click", e => {
 
 
 const history = new(function table() {
+  const tableDate = document.createElement("td");
+  const tableValue = document.createElement("td");
+  tableDate.classList.add("table__date");
+  tableValue.classList.add("table__value");
+  if (tableDate) {
+    for (let i = 0; i < localStorage.length; i++) {
+      let key = localStorage.key(i);
+      let counterNumber = key;
+    }
+    if (localStorage.getItem(key)) {
 
-  for (let i = 0; i < localStorage.length; i++) {
-    let key = localStorage.key(i);
-    let counterNumber = key;
-  }
-  if (localStorage.getItem(key)) {
-    const tableDate = document.createElement("td");
 
-    tableDate.classList.add("table__date");
+      document.querySelector(".table__day").appendChild(tableDate);
+      tableDate.innerHTML = key;
 
-    document.querySelector(".table__day").appendChild(tableDate);
-    tableDate.innerHTML = key;
 
-    const tableValue = document.createElement("td");
 
-    tableValue.classList.add("table__value");
+      document.querySelector(".table__day").appendChild(tableValue);
 
-    document.querySelector(".table__day").appendChild(tableValue);
-
-    tableValue.innerHTML = counterNumber;
+      tableValue.innerHTML = counterNumber;
+    }
   }
 })();
+
+
 
 // const table = document.querySelector(".table__body");
