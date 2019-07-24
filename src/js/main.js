@@ -1,16 +1,29 @@
 "use strict";
 
+import {
+  KeyObject
+} from "crypto";
+import {
+  parse
+} from "querystring";
+
 // service worker registration - remove if you're not going to use it
 
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker.register('serviceworker.js').then(function (registration) {
-      // Registration was successful
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, function (err) {
-      // registration failed :(
-      console.log('ServiceWorker registration failed: ', err);
-    });
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function () {
+    navigator.serviceWorker.register("serviceworker.js").then(
+      function (registration) {
+        // Registration was successful
+        console.log(
+          "ServiceWorker registration successful with scope: ",
+          registration.scope
+        );
+      },
+      function (err) {
+        // registration failed :(
+        console.log("ServiceWorker registration failed: ", err);
+      }
+    );
   });
 }
 
@@ -18,11 +31,15 @@ if ('serviceWorker' in navigator) {
 
 // <<-- hydrApp -->> //
 
-const counter = document.querySelector(".hydrApp__counter--js")
+const counter = document.querySelector(".hydrApp__counter--js");
+
+
+
+const key = new Date().toISOString().slice(0, 10);
+
 
 let counterNumber = 0;
 
-const key = new Date().toISOString().slice(0, 10);
 
 // Buttons
 
@@ -34,11 +51,19 @@ const btnHistory = document.querySelector(".button-history--js");
 
 // Wave animations
 
-const waveUp = document.querySelector(".hydrApp__wave-up--js")
+const waveUp = document.querySelector(".hydrApp__wave-up--js");
 
-const waveDown = document.querySelector(".hydrApp__wave-down--js")
+const waveDown = document.querySelector(".hydrApp__wave-down--js");
 
-const waveLeft = document.querySelector(".hydrApp__wave-left--js")
+const waveLeft = document.querySelector(".hydrApp__wave-left--js");
+
+if (localStorage.getItem(key, counterNumber)) {
+  counterNumber = localStorage.getItem(key);
+  counter.innerHTML = localStorage.getItem(key);
+} else {
+  localStorage.setItem(key, 0);
+  counter.innerHTML = "0";
+}
 
 
 const wave = function () {
@@ -47,28 +72,58 @@ const wave = function () {
   waveLeft.classList.toggle("hydrApp____wave-left--animation");
 };
 
-btnIncrease.addEventListener('click', (e) => {
+
+
+btnIncrease.addEventListener("click", e => {
   counter.innerHTML = ++counterNumber;
   localStorage.setItem(key, counterNumber);
+  if (counterNumber > 15) {
+    counterNumber = 15;
+    localStorage.setItem(key, counterNumber);
+    counter.innerHTML = counterNumber;
+    wave();
+  }
   e.preventDefault();
   wave();
-})
+});
 
-btnDecrease.addEventListener('click', (e) => {
+btnDecrease.addEventListener("click", e => {
   counter.innerHTML = --counterNumber;
   localStorage.setItem(key, counterNumber);
   if (counterNumber <= 0) {
     counterNumber = 0;
-    counter.innerHTML = counterNumber;
     localStorage.setItem(key, counterNumber);
+    counter.innerHTML = counterNumber;
+    wave();
   }
   e.preventDefault();
   wave();
-})
+});
 
 
-counterNumber = localStorage.getItem(key, counterNumber.value);
 
-counter.innerHTML = counterNumber;
 
-console.log(key);
+
+
+// if (localStorage.getItem(key) == true) {
+//   counterNumber = localStorage.getItem(key, counterNumber.value);
+//   counter.innerHTML = JSON.parse(counterNumber.value);
+// } else {
+//   counter.innerHTML = "0";
+// }
+
+// const history = new (function table() {
+//   const tableDate = document.createElement("td");
+
+//   tableDate.classList.add("table__date");
+
+//   document.querySelector(".table__day").appendChild(tableDate);
+//   tableDate.innerHTML = key;
+//   const tableValue = document.createElement("td");
+
+//   tableValue.classList.add("table__value");
+
+//   document.querySelector(".table__day").appendChild(tableValue);
+
+//   tableValue.innerHTML = localStorage.getItem(key, counterNumber.value);
+// })();
