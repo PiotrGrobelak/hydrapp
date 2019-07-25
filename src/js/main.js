@@ -139,11 +139,15 @@ function sortLocalStorage() {
     const localStorageArray = new Array();
 
     for (let i = 0; i < localStorage.length; i++) {
-      localStorageArray[i] =
-        localStorage.key(i) + localStorage.getItem(localStorage.key(i));
+      localStorageArray[i] = `${localStorage.key(i)} : ${localStorage.getItem(
+        localStorage.key(i)
+      )}`;
     }
-    const sortedArray = localStorageArray.sort();
-    return sortedArray;
+    localStorageArray.push("2019-07-27");
+
+    console.log(localStorageArray);
+
+    const keys = localStorageArray.sort();
   }
 }
 
