@@ -134,30 +134,34 @@ btnDecrease.addEventListener("click", e => {
 //   console.log("key: ", +key + ", value: " + value);
 // }
 
-function sortLocalStorage() {
-  if (localStorage.length > 0) {
-    const localStorageArray = new Array();
+// function sortLocalStorage() {
+//   if (localStorage.length > 0) {
+//     const localStorageArray = new Array();
 
-    for (let i = 0; i < localStorage.length; i++) {
-      localStorageArray[i] = `${localStorage.key(i)} : ${localStorage.getItem(
-        localStorage.key(i)
-      )}`;
-    }
-    localStorageArray.push("2019-07-27");
+//     for (let i = 0; i < localStorage.length; i++) {
+//       localStorageArray[i] =
+//         localStorage.key(i) + localStorage.getItem(localStorage.key(i));
+//     }
+//     localStorageArray.push("2019-07-29");
 
-    console.log(localStorageArray);
+//     // console.log(localStorageArray.sort());
 
-    const key = localStorageArray.sort();
-  }
-}
+//     localStorageArray.sort();
 
-sortLocalStorage();
+//     console.log(localStorageArray);
+//   }
+// }
+
+// sortLocalStorage();
 
 function allDates() {
   let archive = [],
     keys = Object.keys(localStorage),
     i = 0,
     key;
+  // keys.push("2019-05-05");
+  keys.sort();
+  console.log(keys);
   for (; (key = keys[i]); i++) {
     // archive.push(key + "=" + localStorage.getItem(key));
     for (let i = 0; i < localStorage.key.length; i++) {
