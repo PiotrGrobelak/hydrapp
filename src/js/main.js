@@ -147,39 +147,39 @@ function sortLocalStorage() {
 
     console.log(localStorageArray);
 
-    const keys = localStorageArray.sort();
-
-    function allDates() {
-      let archive = [],
-        keys = Object.keys(localStorage),
-        i = 0,
-        key;
-      for (; (key = keys[i]); i++) {
-        // archive.push(key + "=" + localStorage.getItem(key));
-        for (let i = 0; i < localStorage.key.length; i++) {
-          // create Day history<---
-          const tableDay = document.createElement("tr");
-          tableDay.classList.add("table__day");
-          document.querySelector(".table__body").appendChild(tableDay);
-
-          // create Date <---
-          const tableDate = document.createElement("td");
-          tableDate.classList.add("table__date");
-          tableDay.appendChild(tableDate);
-          tableDate.innerHTML = key;
-
-          // create counterNumber <---
-          const tableCounter = document.createElement("td");
-          tableCounter.classList.add("table__counter");
-          tableDay.appendChild(tableCounter);
-          tableCounter.innerHTML = localStorage.getItem(key, counterNumber);
-        }
-      }
-      // return archive;
-    }
-
-    allDates();
+    const key = localStorageArray.sort();
   }
 }
 
 sortLocalStorage();
+
+function allDates() {
+  let archive = [],
+    keys = Object.keys(localStorage),
+    i = 0,
+    key;
+  for (; (key = keys[i]); i++) {
+    // archive.push(key + "=" + localStorage.getItem(key));
+    for (let i = 0; i < localStorage.key.length; i++) {
+      // create Day history<---
+      const tableDay = document.createElement("tr");
+      tableDay.classList.add("table__day");
+      document.querySelector(".table__body").appendChild(tableDay);
+
+      // create Date <---
+      const tableDate = document.createElement("td");
+      tableDate.classList.add("table__date");
+      tableDay.appendChild(tableDate);
+      tableDate.innerHTML = key;
+
+      // create counterNumber <---
+      const tableCounter = document.createElement("td");
+      tableCounter.classList.add("table__counter");
+      tableDay.appendChild(tableCounter);
+      tableCounter.innerHTML = localStorage.getItem(key, counterNumber);
+    }
+  }
+  // return archive;
+}
+
+allDates();
