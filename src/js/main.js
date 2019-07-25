@@ -134,6 +134,18 @@ btnDecrease.addEventListener("click", e => {
 //   console.log("key: ", +key + ", value: " + value);
 // }
 
+function sortLocalStorage() {
+  if (localStorage.length > 0) {
+    const localStorageArray = new Array();
+    for (i = 0; i < localStorage.length; i++) {
+      localStorageArray[i] =
+        localStorage.key(i) + localStorage.getItem(localStorage.key(i));
+    }
+  }
+  const sortedArray = localStorageArray.sort();
+  return sortedArray;
+}
+
 function allDates() {
   let archive = [],
     keys = Object.keys(localStorage),
