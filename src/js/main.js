@@ -135,16 +135,19 @@ btnDecrease.addEventListener("click", e => {
 // }
 
 function sortLocalStorage() {
-  if (localStorage.getItem(key)) {
+  if (localStorage.length > 0) {
     const localStorageArray = new Array();
-    for (i = 0; i < localStorage.length; i++) {
+
+    for (let i = 0; i < localStorage.length; i++) {
       localStorageArray[i] =
         localStorage.key(i) + localStorage.getItem(localStorage.key(i));
     }
+    const sortedArray = localStorageArray.sort();
+    return sortedArray;
   }
-  const sortedArray = localStorageArray.sort(key);
-  return sortedArray;
 }
+
+sortLocalStorage();
 
 function allDates() {
   let archive = [],
