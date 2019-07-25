@@ -1,25 +1,21 @@
 "use strict";
 
-import {
-  KeyObject
-} from "crypto";
-import {
-  parse
-} from "querystring";
+import { KeyObject } from "crypto";
+import { parse } from "querystring";
 
 // service worker registration - remove if you're not going to use it
 
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
+  window.addEventListener("load", function() {
     navigator.serviceWorker.register("serviceworker.js").then(
-      function (registration) {
+      function(registration) {
         // Registration was successful
         console.log(
           "ServiceWorker registration successful with scope: ",
           registration.scope
         );
       },
-      function (err) {
+      function(err) {
         // registration failed :(
         console.log("ServiceWorker registration failed: ", err);
       }
@@ -33,13 +29,9 @@ if ("serviceWorker" in navigator) {
 
 const counter = document.querySelector(".hydrApp__counter--js");
 
-
-
 const key = new Date().toISOString().slice(0, 10);
 
-
 let counterNumber = 0;
-
 
 // Buttons
 
@@ -65,14 +57,11 @@ if (localStorage.getItem(key, counterNumber)) {
   counter.innerHTML = "0";
 }
 
-
-const wave = function () {
+const wave = function() {
   waveUp.classList.toggle("hydrApp____wave-up--animation");
   waveDown.classList.toggle("hydrApp____wave-down--animation");
   waveLeft.classList.toggle("hydrApp____wave-left--animation");
 };
-
-
 
 btnIncrease.addEventListener("click", e => {
   counter.innerHTML = ++counterNumber;
@@ -100,39 +89,78 @@ btnDecrease.addEventListener("click", e => {
   wave();
 });
 
-
 // const history = {
 //   ...localStorage
 // }
 // console.log(history);
 
+// const history = new (function table() {
+//   const tableDate = document.createElement("td");
+//   const tableValue = document.createElement("td");
+//   tableDate.classList.add("table__date");
+//   tableValue.classList.add("table__value");
+//   if (tableDate) {
+//     for (let i = 0; i < localStorage.length; i++) {
+//       let key = localStorage.key(i);
+//       let counterNumber = key;
+//     }
+//     if (localStorage.getItem(key)) {
+//       document.querySelector(".table__day").appendChild(tableDate);
+//       tableDate.innerHTML = key;
 
+//       document.querySelector(".table__day").appendChild(tableValue);
 
-const history = new(function table() {
-  const tableDate = document.createElement("td");
-  const tableValue = document.createElement("td");
-  tableDate.classList.add("table__date");
-  tableValue.classList.add("table__value");
-  if (tableDate) {
-    for (let i = 0; i < localStorage.length; i++) {
-      let key = localStorage.key(i);
-      let counterNumber = key;
-    }
-    if (localStorage.getItem(key)) {
-
-
-      document.querySelector(".table__day").appendChild(tableDate);
-      tableDate.innerHTML = key;
-
-
-
-      document.querySelector(".table__day").appendChild(tableValue);
-
-      tableValue.innerHTML = counterNumber;
-    }
-  }
-})();
-
-
+//       tableValue.innerHTML = counterNumber;
+//     }
+//   }
+// })();
 
 // const table = document.querySelector(".table__body");
+
+// function table() {
+//   let dates = {},
+//     keys = Object.keys(localStorage),
+//     i = keys.length;
+
+//   while (i--) {
+//     dates[keys[i]] = localStorage.getItem(keys[i]);
+//   }
+//   return dates;
+// }
+
+// for (let i = 0; i < localStorage.length; i++) {
+//   let key = localStorage.key(i);
+//   let value = localStorage.getItem(key);
+//   console.log("key: ", +key + ", value: " + value);
+// }
+
+function allDates() {
+  let archive = [],
+    keys = Object.keys(localStorage),
+    i = 0,
+    key;
+  for (; (key = keys[i]); i++) {
+    // archive.push(key + "=" + localStorage.getItem(key));
+    for (let i = 0; i < localStorage.key.length; i++) {
+      // create Day history<---
+      const tableDay = document.createElement("tr");
+      tableDay.classList.add("table__day");
+      document.querySelector(".table__body").appendChild(tableDay);
+
+      // create Date <---
+      const tableDate = document.createElement("td");
+      tableDate.classList.add("table__date");
+      tableDay.appendChild(tableDate);
+      tableDate.innerHTML = key;
+
+      // create counterNumber <---
+      const tableCounter = document.createElement("td");
+      tableCounter.classList.add("table__counter");
+      tableDay.appendChild(tableCounter);
+      tableCounter.innerHTML = localStorage.getItem(key, counterNumber);
+    }
+  }
+  // return archive;
+}
+
+allDates();
