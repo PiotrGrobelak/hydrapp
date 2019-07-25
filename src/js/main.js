@@ -135,14 +135,14 @@ btnDecrease.addEventListener("click", e => {
 // }
 
 function sortLocalStorage() {
-  if (localStorage.length > 0) {
+  if (localStorage.getItem(key)) {
     const localStorageArray = new Array();
     for (i = 0; i < localStorage.length; i++) {
       localStorageArray[i] =
         localStorage.key(i) + localStorage.getItem(localStorage.key(i));
     }
   }
-  const sortedArray = localStorageArray.sort();
+  const sortedArray = localStorageArray.sort(key);
   return sortedArray;
 }
 
