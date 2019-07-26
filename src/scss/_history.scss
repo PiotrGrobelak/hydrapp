@@ -3,20 +3,29 @@
     width: 100%;
     position: absolute;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    transform: translateY(100%);
     background-color: #fff;
     padding: 16px;
+    transition: transform 1s ease;
+    overflow: hidden;
+    border: 5px solid #3767ad;
+
+
 
     &__wrapper {
         position: relative;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
         background-color: #fff;
         height: 100%;
-        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        height: 100vh;
+
     }
 
     .table {
@@ -24,7 +33,7 @@
         border-collapse: collapse;
         border: 5px solid #3767ad;
         background-color: #fff;
-        width: 100%;
+        width: 80%;
         box-shadow: 0px 1px 7px 1px black;
 
 
@@ -67,4 +76,15 @@
             transform: translateY(-8%);
         }
     }
+}
+
+.history--visible {
+
+    transform: translateY(0);
+    // display: block;
+
+
+
+
+
 }

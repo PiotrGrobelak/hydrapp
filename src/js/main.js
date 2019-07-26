@@ -41,6 +41,8 @@ const btnDecrease = document.querySelector(".button-remove--js");
 
 const btnHistory = document.querySelector(".button-history--js");
 
+const btnBack = document.querySelector(".button-back--js");
+
 // Wave animations
 
 const waveUp = document.querySelector(".hydrApp__wave-up--js");
@@ -48,6 +50,10 @@ const waveUp = document.querySelector(".hydrApp__wave-up--js");
 const waveDown = document.querySelector(".hydrApp__wave-down--js");
 
 const waveLeft = document.querySelector(".hydrApp__wave-left--js");
+
+// Table history
+
+const historyTable = document.querySelector(".history-visible--js");
 
 // Sending in new day kay and value to localStorage
 
@@ -93,6 +99,14 @@ btnDecrease.addEventListener("click", e => {
   }
   e.preventDefault();
   wave();
+});
+
+btnHistory.addEventListener("click", e => {
+  historyTable.classList.add("history--visible");
+});
+
+btnBack.addEventListener("click", e => {
+  historyTable.classList.remove("history--visible");
 });
 
 // Create table with all sorted days

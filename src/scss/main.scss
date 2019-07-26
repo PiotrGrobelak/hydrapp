@@ -19,125 +19,136 @@ body {
   padding: 4px;
   font-family: "Roboto", sans-serif;
   background: #3767ad;
-  position: relative;
+
+
+
+
 }
 
-.main {
-  margin: 0 auto;
-  padding: 8px;
-  display: grid;
-  justify-content: center;
-  align-items: center;
-}
-
-.header {
-  margin: 4px auto;
-  padding: 8px;
-  justify-self: center;
-
-  &__title {
-    color: #ffffff;
-  }
-}
-
-.hydrApp {
-  margin: 4px auto;
-  padding: 4px;
-  justify-self: center;
+.content-wrapper {
+  overflow: hidden;
   position: relative;
 
-  &__wave-up {
-    transition: transform 0.5s ease-out;
+
+  .main {
+    margin: 0 auto;
+    padding: 8px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+
   }
 
-  &____wave-up--animation {
-    transform: translateY(-2%);
+  .header {
+    margin: 4px auto;
+    padding: 8px;
+    justify-self: center;
+
+    &__title {
+      color: #ffffff;
+    }
   }
 
-  &__wave-down {
-    transition: transform 0.5s ease-out;
+  .hydrApp {
+    margin: 4px auto;
+    padding: 4px;
+    justify-self: center;
+    position: relative;
+
+    &__wave-up {
+      transition: transform 0.5s ease-out;
+    }
+
+    &____wave-up--animation {
+      transform: translateY(-2%);
+    }
+
+    &__wave-down {
+      transition: transform 0.5s ease-out;
+    }
+
+    &____wave-down--animation {
+      transform: translateY(2%);
+    }
+
+    &__wave-left {
+      transition: transform 0.5s ease-out;
+    }
+
+    &____wave-left--animation {
+      transform: translateX(-2%);
+    }
+
+    &__counter {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 112px;
+      font-weight: bold;
+    }
   }
 
-  &____wave-down--animation {
-    transform: translateY(2%);
-  }
-
-  &__wave-left {
-    transition: transform 0.5s ease-out;
-  }
-
-  &____wave-left--animation {
-    transform: translateX(-2%);
-  }
-
-  &__counter {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 112px;
+  .button {
+    margin: 4px auto;
+    padding: 16px;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    cursor: pointer;
     font-weight: bold;
   }
-}
 
-.button {
-  margin: 4px auto;
-  padding: 16px;
-  border-radius: 4px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-}
+  .button-add {
+    margin: 0 auto;
+    margin-top: 48px;
+    height: 48px;
+    width: 216px;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: background 0.5s linear, transform 0.5s ease;
 
-.button-add {
-  margin: 0 auto;
-  margin-top: 48px;
-  height: 48px;
-  width: 216px;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  transition: background 0.5s linear, transform 0.5s ease;
-
-  &:hover {
-    background: #106ebb;
-    transform: translateY(-8%);
-  }
-}
-
-.button-remove {
-  margin: 0 auto;
-  height: 24px;
-  width: 184px;
-  font-size: 14px;
-  line-height: 2px;
-  margin-top: 36px;
-  background: transparent;
-  outline: none;
-  color: #ffffff;
-  opacity: 0.5;
-  transition: opacity 0.4s linear, transform 0.6s linear;
-
-  &:hover {
-    opacity: 1;
-    transform: scale(1.2);
+    &:hover {
+      background: #106ebb;
+      transform: translateY(-8%);
+    }
   }
 
-  &:focus {
-    border: 0.5px solid #ffffff;
+  .button-remove {
+    margin: 0 auto;
+    height: 24px;
+    width: 184px;
+    font-size: 14px;
+    line-height: 2px;
+    margin-top: 36px;
+    background: transparent;
+    outline: none;
+    color: #ffffff;
+    opacity: 0.5;
+    transition: opacity 0.4s linear, transform 0.6s linear;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    &:focus {
+      border: 0.5px solid #ffffff;
+    }
   }
-}
 
-.button-history {
-  margin: 100px auto;
-  height: 48px;
-  width: 216px;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  transition: background 0.5s linear, transform 0.5s ease;
+  .button-history {
+    margin: 100px auto;
+    height: 48px;
+    width: 216px;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    transition: background 0.5s linear, transform 0.5s ease;
 
-  &:hover {
-    background: #106ebb;
-    transform: translateY(8%);
+    &:hover {
+      background: #106ebb;
+      transform: translateY(8%);
+    }
   }
 }

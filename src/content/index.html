@@ -29,53 +29,55 @@
 </head>
 
 <body>
-  <main class="main">
-    <header class="header">
-      <h1 class="header__title">hydrApp</h1>
-    </header>
-    <secction class="hydrApp">
-      <svg class="hydrApp__image" width="280" height="280" viewBox="0 0 280 280" fill="none"
-        xmlns="http://www.w3.org/2000/svg">
-        <g class="hydrApp__paths" id="water-glass">
-          <path class="hydrApp__glass" id="Vector"
-            d="M242.748 2.8875C241.085 1.05 238.74 0 236.255 0H43.7555C41.288 0 38.9255 1.05 37.263 2.8875C35.618 4.7075 34.7955 7.1575 35.0405 9.625L61.2905 272.125C61.7455 276.605 65.508 280 70.0055 280H210.005C214.503 280 218.265 276.605 218.703 272.125L244.953 9.625C245.215 7.1575 244.41 4.7075 242.748 2.8875Z"
-            fill="#ECEFF1" />
-          <path class="hydrApp__wave-up hydrApp__wave-up--js" id="Vector_2"
-            d="M89.5 90.8553L79.7377 105.625L83.5852 124.125L154.364 115.625L215.5 111.722L215.5 105.625C222.852 88.2216 206.585 81.8952 195.352 78.2216C127.623 56.0722 123.279 102.355 89.5 90.8553Z"
-            fill="#75C1FE" />
-          <path class="hydrApp__wave-down hydrApp__wave-down--js" id="Vector_3"
-            d="M200.14 104L198.5 119.5L66.277 98.3236V81.3236C60.277 62.3236 106.778 41.4732 141.14 60.8236C167.57 75.7069 172.811 87.2875 200.14 104Z"
-            fill="#47A6F2" />
-          <path class="hydrApp__wave-left hydrApp__wave-left--js" id="Vector_4"
-            d="M215.659 96.5607L214.556 122.561H102.654L73.5 69.5C104.5 82.5299 139.5 56 163 64.5C186.5 73 159 86.5 215.659 96.5607Z"
-            fill="#2990E2" />
-          <path class="hydrApp__wave" id="Vector_5"
-            d="M219.455 89.25L202.13 262.5H77.8805L58.4555 68.775C80.3305 61.775 113.58 57.05 140.005 78.75C165.555 99.75 197.755 95.9 219.455 89.25Z"
-            fill="#2196F3" />
-        </g>
-      </svg>
-      <span class="hydrApp__counter hydrApp__counter--js"></span>
-    </secction>
-    <button class="button button-add button-add--js">Add glass</button>
-    <button class="button button-remove button-remove--js">Remove glass</button>
-    <button class="button button-history button-history--js">History</button>
-  </main>
-  <section class="history">
-    <div class="history__wrapper">
+  <div class="content-wrapper">
+    <main class="main">
+      <header class="header">
+        <h1 class="header__title">hydrApp</h1>
+      </header>
+      <secction class="hydrApp">
+        <svg class="hydrApp__image" width="280" height="280" viewBox="0 0 280 280" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <g class="hydrApp__paths" id="water-glass">
+            <path class="hydrApp__glass" id="Vector"
+              d="M242.748 2.8875C241.085 1.05 238.74 0 236.255 0H43.7555C41.288 0 38.9255 1.05 37.263 2.8875C35.618 4.7075 34.7955 7.1575 35.0405 9.625L61.2905 272.125C61.7455 276.605 65.508 280 70.0055 280H210.005C214.503 280 218.265 276.605 218.703 272.125L244.953 9.625C245.215 7.1575 244.41 4.7075 242.748 2.8875Z"
+              fill="#ECEFF1" />
+            <path class="hydrApp__wave-up hydrApp__wave-up--js" id="Vector_2"
+              d="M89.5 90.8553L79.7377 105.625L83.5852 124.125L154.364 115.625L215.5 111.722L215.5 105.625C222.852 88.2216 206.585 81.8952 195.352 78.2216C127.623 56.0722 123.279 102.355 89.5 90.8553Z"
+              fill="#75C1FE" />
+            <path class="hydrApp__wave-down hydrApp__wave-down--js" id="Vector_3"
+              d="M200.14 104L198.5 119.5L66.277 98.3236V81.3236C60.277 62.3236 106.778 41.4732 141.14 60.8236C167.57 75.7069 172.811 87.2875 200.14 104Z"
+              fill="#47A6F2" />
+            <path class="hydrApp__wave-left hydrApp__wave-left--js" id="Vector_4"
+              d="M215.659 96.5607L214.556 122.561H102.654L73.5 69.5C104.5 82.5299 139.5 56 163 64.5C186.5 73 159 86.5 215.659 96.5607Z"
+              fill="#2990E2" />
+            <path class="hydrApp__wave" id="Vector_5"
+              d="M219.455 89.25L202.13 262.5H77.8805L58.4555 68.775C80.3305 61.775 113.58 57.05 140.005 78.75C165.555 99.75 197.755 95.9 219.455 89.25Z"
+              fill="#2196F3" />
+          </g>
+        </svg>
+        <span class="hydrApp__counter hydrApp__counter--js"></span>
+      </secction>
+      <button class="button button-add button-add--js">Add glass</button>
+      <button class="button button-remove button-remove--js">Remove glass</button>
+      <button class="button button-history button-history--js">History</button>
+    </main>
+    <section class="history  history-visible--js">
+      <div class="history__wrapper">
 
-      <table class="table">
-        <thead class="table__header">
-          <tr>
-            <th class="table__title" colspan="2">History of glasses</th>
-          </tr>
-        </thead>
-        <tbody class="table__body">
-        </tbody>
-      </table>
-      <button class="button button-back button-back--js">Back</button>
-    </div>
+        <table class="table">
+          <thead class="table__header">
+            <tr>
+              <th class="table__title" colspan="2">History of glasses</th>
+            </tr>
+          </thead>
+          <tbody class="table__body">
+          </tbody>
+        </table>
+        <button class="button button-back button-back--js">Back</button>
+      </div>
 
-  </section>
+    </section>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
