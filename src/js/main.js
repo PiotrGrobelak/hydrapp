@@ -49,6 +49,8 @@ const waveDown = document.querySelector(".hydrApp__wave-down--js");
 
 const waveLeft = document.querySelector(".hydrApp__wave-left--js");
 
+// Sending in new day kay and value to localStorage
+
 if (localStorage.getItem(key, counterNumber)) {
   counterNumber = localStorage.getItem(key);
   counter.innerHTML = localStorage.getItem(key);
@@ -57,11 +59,15 @@ if (localStorage.getItem(key, counterNumber)) {
   counter.innerHTML = "0";
 }
 
+// Create animations in a glass
+
 const wave = function() {
   waveUp.classList.toggle("hydrApp____wave-up--animation");
   waveDown.classList.toggle("hydrApp____wave-down--animation");
   waveLeft.classList.toggle("hydrApp____wave-left--animation");
 };
+
+// Listener on buttons
 
 btnIncrease.addEventListener("click", e => {
   counter.innerHTML = ++counterNumber;
@@ -89,101 +95,37 @@ btnDecrease.addEventListener("click", e => {
   wave();
 });
 
-// const history = {
-//   ...localStorage
-// }
-// console.log(history);
+// Create table with all sorted days
 
-// const history = new (function table() {
-//   const tableDate = document.createElement("td");
-//   const tableValue = document.createElement("td");
-//   tableDate.classList.add("table__date");
-//   tableValue.classList.add("table__value");
-//   if (tableDate) {
-//     for (let i = 0; i < localStorage.length; i++) {
-//       let key = localStorage.key(i);
-//       let counterNumber = key;
-//     }
-//     if (localStorage.getItem(key)) {
-//       document.querySelector(".table__day").appendChild(tableDate);
-//       tableDate.innerHTML = key;
-
-//       document.querySelector(".table__day").appendChild(tableValue);
-
-//       tableValue.innerHTML = counterNumber;
-//     }
-//   }
-// })();
-
-// const table = document.querySelector(".table__body");
-
-// function table() {
-//   let dates = {},
-//     keys = Object.keys(localStorage),
-//     i = keys.length;
-
-//   while (i--) {
-//     dates[keys[i]] = localStorage.getItem(keys[i]);
-//   }
-//   return dates;
-// }
-
-// for (let i = 0; i < localStorage.length; i++) {
-//   let key = localStorage.key(i);
-//   let value = localStorage.getItem(key);
-//   console.log("key: ", +key + ", value: " + value);
-// }
-
-// function sortLocalStorage() {
-//   if (localStorage.length > 0) {
-//     const localStorageArray = new Array();
-
-//     for (let i = 0; i < localStorage.length; i++) {
-//       localStorageArray[i] =
-//         localStorage.key(i) + localStorage.getItem(localStorage.key(i));
-//     }
-//     localStorageArray.push("2019-07-29");
-
-//     // console.log(localStorageArray.sort());
-
-//     localStorageArray.sort();
-
-//     console.log(localStorageArray);
-//   }
-// }
-
-// sortLocalStorage();
-
-function allDates() {
+function printDates() {
   let archive = [],
     keys = Object.keys(localStorage),
     i = 0,
     key;
-  // keys.push("2019-05-05");
+  // sort keys
   keys.sort();
-  console.log(keys);
   for (; (key = keys[i]); i++) {
-    // archive.push(key + "=" + localStorage.getItem(key));
     for (let i = 0; i < localStorage.key.length; i++) {
-      // create Day history<---
+      // create Day <---
       const tableDay = document.createElement("tr");
       tableDay.classList.add("table__day");
       document.querySelector(".table__body").appendChild(tableDay);
 
-      // create Date <---
+      // push Key to Date<---
       const tableDate = document.createElement("td");
       tableDate.classList.add("table__date");
       tableDay.appendChild(tableDate);
       tableDate.innerHTML = key;
 
-      // create counterNumber <---
+      // push counterNumber to Value<---
       const tableCounter = document.createElement("td");
       tableCounter.classList.add("table__counter");
       tableDay.appendChild(tableCounter);
       tableCounter.innerHTML = localStorage.getItem(key, counterNumber);
     }
   }
-  // return archive;
+
+  console.log(keys);
 }
 
-allDates();
+printDates();
