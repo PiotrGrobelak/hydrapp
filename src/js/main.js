@@ -138,8 +138,6 @@ function printDates() {
       tableCounter.innerHTML = localStorage.getItem(key, counterNumber);
     }
   }
-
   console.log(keys);
 }
-
 printDates();
