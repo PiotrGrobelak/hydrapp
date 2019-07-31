@@ -311,12 +311,12 @@ template {
 .history {
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  -webkit-transform: translateY(100%);
-      -ms-transform: translateY(100%);
-          transform: translateY(100%);
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
   background-color: #fff;
   padding: 16px;
   -webkit-transition: -webkit-transform 1s ease;
@@ -324,8 +324,11 @@ template {
   -o-transition: transform 1s ease;
   transition: transform 1s ease;
   transition: transform 1s ease, -webkit-transform 1s ease;
-  overflow: hidden;
   border: 5px solid #3767ad; }
+  .history--visible {
+    -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+            transform: translateX(0); }
   .history__wrapper {
     position: relative;
     display: -webkit-box;
@@ -346,8 +349,7 @@ template {
     background-color: #fff;
     height: 100%;
     max-width: 700px;
-    margin: 0 auto;
-    height: 100vh; }
+    margin: 0 auto; }
   .history .table {
     table-layout: fixed;
     border-collapse: collapse;
@@ -368,6 +370,9 @@ template {
       line-height: 40px;
       text-align: center;
       font-weight: bold; }
+  @media (orientation: landscape) {
+    .history .table {
+      width: 60%; } }
   .history .button {
     margin: 0 auto;
     height: 24px;
@@ -390,11 +395,6 @@ template {
           -ms-transform: translateY(-8%);
               transform: translateY(-8%); }
 
-.history--visible {
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0); }
-
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
@@ -410,139 +410,141 @@ body {
   font-family: "Roboto", sans-serif;
   background: #3767ad; }
 
-.content-wrapper {
-  overflow: hidden;
+.main {
+  margin: 0 auto;
+  padding: 8px;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%; }
+
+.header {
+  margin: 4px auto;
+  padding: 8px;
+  -ms-grid-column-align: center;
+      justify-self: center; }
+  .header__title {
+    color: #ffffff; }
+
+.hydrApp {
+  margin: 4px auto;
+  padding: 4px;
+  -ms-grid-column-align: center;
+      justify-self: center;
   position: relative; }
-  .content-wrapper .main {
-    margin: 0 auto;
-    padding: 8px;
-    display: -ms-grid;
-    display: grid;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 100%; }
-  .content-wrapper .header {
-    margin: 4px auto;
-    padding: 8px;
-    -ms-grid-column-align: center;
-        justify-self: center; }
-    .content-wrapper .header__title {
-      color: #ffffff; }
-  .content-wrapper .hydrApp {
-    margin: 4px auto;
-    padding: 4px;
-    -ms-grid-column-align: center;
-        justify-self: center;
-    position: relative; }
-    .content-wrapper .hydrApp__wave-up {
-      -webkit-transition: -webkit-transform 0.5s ease-out;
-      transition: -webkit-transform 0.5s ease-out;
-      -o-transition: transform 0.5s ease-out;
-      transition: transform 0.5s ease-out;
-      transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
-    .content-wrapper .hydrApp____wave-up--animation {
-      -webkit-transform: translateY(-2%);
-          -ms-transform: translateY(-2%);
-              transform: translateY(-2%); }
-    .content-wrapper .hydrApp__wave-down {
-      -webkit-transition: -webkit-transform 0.5s ease-out;
-      transition: -webkit-transform 0.5s ease-out;
-      -o-transition: transform 0.5s ease-out;
-      transition: transform 0.5s ease-out;
-      transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
-    .content-wrapper .hydrApp____wave-down--animation {
-      -webkit-transform: translateY(2%);
-          -ms-transform: translateY(2%);
-              transform: translateY(2%); }
-    .content-wrapper .hydrApp__wave-left {
-      -webkit-transition: -webkit-transform 0.5s ease-out;
-      transition: -webkit-transform 0.5s ease-out;
-      -o-transition: transform 0.5s ease-out;
-      transition: transform 0.5s ease-out;
-      transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
-    .content-wrapper .hydrApp____wave-left--animation {
-      -webkit-transform: translateX(-2%);
-          -ms-transform: translateX(-2%);
-              transform: translateX(-2%); }
-    .content-wrapper .hydrApp__counter {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      -webkit-transform: translate(-50%, -50%);
-          -ms-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
-      font-size: 112px;
-      font-weight: bold; }
-  .content-wrapper .button {
-    margin: 4px auto;
-    padding: 16px;
-    border-radius: 4px;
-    -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border: none;
-    cursor: pointer;
+  .hydrApp__wave-up {
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    transition: -webkit-transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
+  .hydrApp____wave-up--animation {
+    -webkit-transform: translateY(-2%);
+        -ms-transform: translateY(-2%);
+            transform: translateY(-2%); }
+  .hydrApp__wave-down {
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    transition: -webkit-transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
+  .hydrApp____wave-down--animation {
+    -webkit-transform: translateY(2%);
+        -ms-transform: translateY(2%);
+            transform: translateY(2%); }
+  .hydrApp__wave-left {
+    -webkit-transition: -webkit-transform 0.5s ease-out;
+    transition: -webkit-transform 0.5s ease-out;
+    -o-transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out;
+    transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
+  .hydrApp____wave-left--animation {
+    -webkit-transform: translateX(-2%);
+        -ms-transform: translateX(-2%);
+            transform: translateX(-2%); }
+  .hydrApp__counter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    font-size: 112px;
     font-weight: bold; }
-  .content-wrapper .button-add {
-    margin: 0 auto;
-    margin-top: 48px;
-    height: 48px;
-    width: 216px;
-    background: #ffffff;
-    -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    -webkit-transition: background 0.5s linear, -webkit-transform 0.5s ease;
-    transition: background 0.5s linear, -webkit-transform 0.5s ease;
-    -o-transition: background 0.5s linear, transform 0.5s ease;
-    transition: background 0.5s linear, transform 0.5s ease;
-    transition: background 0.5s linear, transform 0.5s ease, -webkit-transform 0.5s ease; }
-    .content-wrapper .button-add:hover {
-      background: #106ebb;
-      -webkit-transform: translateY(-8%);
-          -ms-transform: translateY(-8%);
-              transform: translateY(-8%); }
-  .content-wrapper .button-remove {
-    margin: 0 auto;
-    height: 24px;
-    width: 184px;
-    font-size: 14px;
-    line-height: 2px;
-    margin-top: 36px;
-    background: transparent;
-    outline: none;
-    color: #ffffff;
-    opacity: 0.5;
-    -webkit-transition: opacity 0.4s linear, -webkit-transform 0.6s linear;
-    transition: opacity 0.4s linear, -webkit-transform 0.6s linear;
-    -o-transition: opacity 0.4s linear, transform 0.6s linear;
-    transition: opacity 0.4s linear, transform 0.6s linear;
-    transition: opacity 0.4s linear, transform 0.6s linear, -webkit-transform 0.6s linear; }
-    .content-wrapper .button-remove:hover {
-      opacity: 1;
-      -webkit-transform: scale(1.2);
-          -ms-transform: scale(1.2);
-              transform: scale(1.2); }
-    .content-wrapper .button-remove:focus {
-      border: 0.5px solid #ffffff; }
-  .content-wrapper .button-history {
-    margin: 100px auto;
-    height: 48px;
-    width: 216px;
-    background: #ffffff;
-    -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    -webkit-transition: background 0.5s linear, -webkit-transform 0.5s ease;
-    transition: background 0.5s linear, -webkit-transform 0.5s ease;
-    -o-transition: background 0.5s linear, transform 0.5s ease;
-    transition: background 0.5s linear, transform 0.5s ease;
-    transition: background 0.5s linear, transform 0.5s ease, -webkit-transform 0.5s ease; }
-    .content-wrapper .button-history:hover {
-      background: #106ebb;
-      -webkit-transform: translateY(8%);
-          -ms-transform: translateY(8%);
-              transform: translateY(8%); }
+
+.button {
+  margin: 20px auto;
+  padding: 16px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+  font-weight: bold; }
+
+.button-add {
+  margin: 0 auto;
+  margin-top: 48px;
+  height: 48px;
+  width: 216px;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-transition: background 0.5s linear, -webkit-transform 0.5s ease;
+  transition: background 0.5s linear, -webkit-transform 0.5s ease;
+  -o-transition: background 0.5s linear, transform 0.5s ease;
+  transition: background 0.5s linear, transform 0.5s ease;
+  transition: background 0.5s linear, transform 0.5s ease, -webkit-transform 0.5s ease; }
+  .button-add:hover {
+    background: #106ebb;
+    -webkit-transform: translateY(-8%);
+        -ms-transform: translateY(-8%);
+            transform: translateY(-8%); }
+
+.button-remove {
+  margin: 0 auto;
+  height: 24px;
+  width: 184px;
+  font-size: 14px;
+  line-height: 2px;
+  margin-top: 36px;
+  background: transparent;
+  outline: none;
+  color: #ffffff;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.4s linear, -webkit-transform 0.6s linear;
+  transition: opacity 0.4s linear, -webkit-transform 0.6s linear;
+  -o-transition: opacity 0.4s linear, transform 0.6s linear;
+  transition: opacity 0.4s linear, transform 0.6s linear;
+  transition: opacity 0.4s linear, transform 0.6s linear, -webkit-transform 0.6s linear; }
+  .button-remove:hover {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+            transform: scale(1.2); }
+  .button-remove:focus {
+    border: 0.5px solid #ffffff; }
+
+.button-history {
+  height: 48px;
+  width: 216px;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  -webkit-transition: background 0.5s linear, -webkit-transform 0.5s ease;
+  transition: background 0.5s linear, -webkit-transform 0.5s ease;
+  -o-transition: background 0.5s linear, transform 0.5s ease;
+  transition: background 0.5s linear, transform 0.5s ease;
+  transition: background 0.5s linear, transform 0.5s ease, -webkit-transform 0.5s ease; }
+  .button-history:hover {
+    background: #106ebb;
+    -webkit-transform: translateY(8%);
+        -ms-transform: translateY(8%);
+            transform: translateY(8%); }
 
 /*# sourceMappingURL=main.css.map */
